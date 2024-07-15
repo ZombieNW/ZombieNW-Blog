@@ -27,6 +27,7 @@
 		"dotenv": "^16.4.5",
 		"jsonwebtoken": "^9.0.2",
 		"marked": "^13.0.2",
-		"svelte-routing": "^2.13.0"
+		"svelte-routing": "^2.13.0",
+		"util": "^0.12.5"
 	}
 }
