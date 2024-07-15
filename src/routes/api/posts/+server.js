@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit';
-import { createPost, updatePost, getPaginatedPosts } from '$lib/db.js';
+import { createPost, updatePost, getPaginatedPosts, deletePost } from '$lib/db.js';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 
