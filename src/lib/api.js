@@ -41,12 +41,12 @@ export async function fetchPosts(page = 1, postsPerPage = 10) {
 }
 
 export async function updatePost(id, title, content) {
-	const response = await fetch(`/api/posts/${id}`, {
+	const response = await fetch(`/api/posts`, {
 		method: 'PUT',
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify({ title, content })
+		body: JSON.stringify({ id, title, content })
 	});
 
 	if (!response.ok) {
