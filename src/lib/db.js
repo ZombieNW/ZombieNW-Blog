@@ -23,6 +23,27 @@ export function getPostById(id) {
 	return db.prepare(`SELECT * FROM posts WHERE id = ?`).get(id);
 }
 
+export function getPaginatedPosts(page, postsPerPage) {
+	const offset = (page - 1) * postsPerPage;
+	const posts = db
+		.prepare(
+			`
+        SELECT * FROM posts
+        ORDER BY created_at DESC
+        LIMIT ? OFFSET ?
+        `
+		)
+		.all(postsPerPage, offset);
+
+	const totalPostCount = db.prepare(`SELECT COUNT(*) as count FROM posts`).get().count;
+
+	return {
+		posts,
+		totalPages: Math.ceil(totalPostCount / postsPerPage),
+		currentPage: page
+	};
+}
+
 export function createPost(title, content) {
 	const info = db.prepare(`INSERT INTO posts (title, content) VALUES (?, ?)`).run(title, content);
 	return info.lastInsertRowid;
