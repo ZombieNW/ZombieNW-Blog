@@ -1,5 +1,6 @@
 import Database from 'better-sqlite3';
 import dotenv from 'dotenv';
+import { generateSlug } from '$lib/clientUtils';
 
 dotenv.config();
 
@@ -10,6 +11,7 @@ db.exec(`
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT NOT NULL,
         content TEXT NOT NULL,
+		slug TEXT NOT NULL UNIQUE,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )
@@ -21,6 +23,10 @@ export function getAllPosts() {
 
 export function getPostById(id) {
 	return db.prepare(`SELECT * FROM posts WHERE id = ?`).get(id);
+}
+
+export function getPostBySlug(slug) {
+	return db.prepare(`SELECT * FROM posts WHERE slug = ?`).get(slug);
 }
 
 export function getPaginatedPosts(page, postsPerPage) {
@@ -45,14 +51,13 @@ export function getPaginatedPosts(page, postsPerPage) {
 }
 
 export function createPost(title, content) {
-	const info = db.prepare(`INSERT INTO posts (title, content) VALUES (?, ?)`).run(title, content);
+	const slug = generateSlug(title);
+	const info = db.prepare(`INSERT INTO posts (title, content, slug) VALUES (?, ?, ?)`).run(title, content, slug);
 	return info.lastInsertRowid;
 }
 
 export function updatePost(id, title, content) {
-	const info = db
-		.prepare(`UPDATE posts SET title = ?, content = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?`)
-		.run(title, content, id);
+	const info = db.prepare(`UPDATE posts SET title = ?, content = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?`).run(title, content, id);
 
 	return info.changes > 0;
 }
