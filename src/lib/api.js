@@ -14,6 +14,16 @@ export async function createPost(title, content) {
 	return response.json();
 }
 
+export async function getPost(id) {
+	const response = await fetch(`/api/posts/content?id=${id}`);
+
+	if (!response.ok) {
+		throw new Error('Failed to fetch post');
+	}
+
+	return response.json();
+}
+
 export async function deletePost(id) {
 	const response = await fetch('/api/posts', {
 		method: 'DELETE',
