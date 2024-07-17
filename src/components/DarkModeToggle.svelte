@@ -28,7 +28,7 @@
 	}
 </script>
 
-<button on:click={toggleDarkMode} class="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+<button on:click={toggleDarkMode} class="p-2 rounded-full bg-light_light dark:bg-dark_bg leading-3 h-10 w-10">
 	{#if $darkMode}
 		🌙
 	{:else}

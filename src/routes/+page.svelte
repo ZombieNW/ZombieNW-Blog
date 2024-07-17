@@ -27,14 +27,12 @@
 	});
 </script>
 
-<body class="dark:bg-gray-900 bg-gray-50 h-full dark:text-white m-4">
-	{#each posts as post}
-		<a href={`/posts/${generateSlug(post.title)}`}>
-			<h1>{post.title}</h1>
-			<h2 class="text-sm">
-				{formatDate(new Date(post.created_at))}
-				{post.created_at !== post.updated_at ? `• Updated ${formatDate(new Date(post.updated_at))}` : ''}
-			</h2>
-		</a>
-	{/each}
-</body>
+{#each posts as post}
+	<a href={`/posts/${generateSlug(post.title)}`}>
+		<h1>{post.title}</h1>
+		<h2 class="text-sm">
+			{formatDate(new Date(post.created_at))}
+			{post.created_at !== post.updated_at ? `• Updated ${formatDate(new Date(post.updated_at))}` : ''}
+		</h2>
+	</a>
+{/each}
