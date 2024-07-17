@@ -7,13 +7,13 @@
 	let post = {};
 
 	onMount(async () => {
-		post = (await getPost(postId)).post;
+		const postResult = await getPost(postId);
+		post = postResult.post;
+		console.log(postResult);
 	});
 </script>
 
-<article class="max-w-2xl mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
-	<h1 class="text-3xl font-bold mb-4">{post.title}</h1>
-	<div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
-		{@html post.content}
-	</div>
-</article>
+<h1 class="text-3xl font-bold mb-4">{post.title}</h1>
+<div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
+	{@html post.content}
+</div>

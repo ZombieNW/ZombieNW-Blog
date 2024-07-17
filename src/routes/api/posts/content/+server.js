@@ -19,7 +19,7 @@ export async function GET(event) {
 				post
 			});
 		} else {
-			const post = await getPostBySlug(url.searchParams.get('slug'));
+			const post = await getPostBySlug(url.searchParams.get('id'));
 			return json({
 				success: true,
 				post
