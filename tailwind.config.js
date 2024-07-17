@@ -11,11 +11,13 @@ export default {
 				dark_lighter: '#18181b',
 				dark_light: '#a1a1aa',
 				dark_text: '#f4f4f5',
+				dark_text_darker: '#a1a1aa',
 				light_bg: '#f1f5f9',
 				light_darker: '#e2e8f0',
 				light_lighter: '#f8fafc',
 				light_light: '#ffffff',
-				light_text: '#09090b'
+				light_text: '#09090b',
+				light_text_darker: '#3f3f46'
 			}
 		}
 	},
