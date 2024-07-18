@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { fetchPosts } from '$lib/api.js';
-	import { generateSlug } from '$lib/clientUtils.js';
+	import { generateSlug, formatDate } from '$lib/clientUtils.js';
 
 	let posts = [];
 	let totalPages = 1;
@@ -12,13 +12,6 @@
 		posts = postsResponse.posts;
 		totalPages = postsResponse.totalPages;
 		return postsResponse;
-	}
-
-	function formatDate(date) {
-		const month = new Date(date).toLocaleString('default', { month: 'short' });
-		const day = new Date(date).getDate();
-		const year = new Date(date).getFullYear();
-		return `${month.slice(0, 3)} ${day}, ${year}`;
 	}
 
 	function formatPreview(content) {
