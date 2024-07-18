@@ -2,7 +2,6 @@
 	import { createPost, fetchPosts, updatePost, deletePost } from '$lib/api.js';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	import { marked } from 'marked';
 	import { onMount } from 'svelte';
 
 	let title = '';
@@ -12,7 +11,7 @@
 
 	let editingPostId = null;
 
-	$: previewHtml = marked(content);
+	$: previewHtml = null; //marked(content);
 
 	let username = '';
 	let password = '';
@@ -156,3 +155,13 @@
 		<p class="error">{error}</p>
 	{/if}
 {/if}
+
+<!-- This exists only to add classes to tailwind compiler -->
+<div class="hidden">
+	<p class="rounded px-1 py-0.5 font-mono text-sm p-4 mb-4 overflow-x-auto bg-light_darker dark:bg-dark_darker">This isn't here</p>
+	<p class="text-4xl mb-8">a</p>
+	<p class="mb-6 whitespace-pre-wrap">a</p>
+	<p class="mb-3">a</p>
+	<p class="mb-2">a</p>
+	<p class="mb-1">a</p>
+</div>
