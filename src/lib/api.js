@@ -1,10 +1,10 @@
-export async function createPost(title, content) {
+export async function createPost(title, content, description) {
 	const response = await fetch('/api/posts', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify({ title, content })
+		body: JSON.stringify({ title, content, description })
 	});
 
 	if (!response.ok) {
@@ -50,13 +50,13 @@ export async function fetchPosts(page = 1, postsPerPage = 10) {
 	return response.json();
 }
 
-export async function updatePost(id, title, content) {
+export async function updatePost(id, title, content, description) {
 	const response = await fetch(`/api/posts`, {
 		method: 'PUT',
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify({ id, title, content })
+		body: JSON.stringify({ id, title, content, description })
 	});
 
 	if (!response.ok) {

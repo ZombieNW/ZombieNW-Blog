@@ -40,8 +40,8 @@ export async function POST(event) {
 	const authResult = await requireAuth(event);
 	if (authResult) return authResult;
 
-	const { title, content } = await event.request.json();
-	const newPost = await createPost(title, content);
+	const { title, content, description } = await event.request.json();
+	const newPost = await createPost(title, content, description);
 	return json(newPost, { success: true });
 }
 
@@ -49,7 +49,7 @@ export async function PUT(event) {
 	const authResult = await requireAuth(event);
 	if (authResult) return authResult;
 
-	const { id, title, content } = await event.request.json();
-	const updatedPost = await updatePost(id, title, content);
+	const { id, title, content, description } = await event.request.json();
+	const updatedPost = await updatePost(id, title, content, description);
 	return json(updatedPost, { success: true });
 }

@@ -12,6 +12,7 @@ db.exec(`
         title TEXT NOT NULL,
         content TEXT NOT NULL,
 		slug TEXT NOT NULL UNIQUE,
+		description TEXT,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )
@@ -50,14 +51,15 @@ export function getPaginatedPosts(page, postsPerPage) {
 	};
 }
 
-export function createPost(title, content) {
+export function createPost(title, content, description) {
 	const slug = generateSlug(title);
-	const info = db.prepare(`INSERT INTO posts (title, content, slug) VALUES (?, ?, ?)`).run(title, content, slug);
+	const info = db.prepare(`INSERT INTO posts (title, content, slug, description) VALUES (?, ?, ?, ?)`).run(title, content, slug, description);
 	return info.lastInsertRowid;
 }
 
-export function updatePost(id, title, content) {
-	const info = db.prepare(`UPDATE posts SET title = ?, content = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?`).run(title, content, id);
+export function updatePost(id, title, content, description) {
+	console.log(description);
+	const info = db.prepare(`UPDATE posts SET title = ?, content = ?, description = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?`).run(title, content, description, id);
 
 	return info.changes > 0;
 }

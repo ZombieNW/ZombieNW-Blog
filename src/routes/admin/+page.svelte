@@ -6,6 +6,7 @@
 	import { onMount } from 'svelte';
 
 	let title = '';
+	let description = '';
 	let content = '';
 	let posts = [];
 
@@ -28,13 +29,13 @@
 	async function handleCreatePost() {
 		if (title && content) {
 			if (editingPostId) {
-				await updatePost(editingPostId, title, content);
+				await updatePost(editingPostId, title, content, description);
 				title = '';
 				content = '';
 				editingPostId = null;
 				loadPosts(1, 10);
 			} else {
-				await createPost(title, content);
+				await createPost(title, content, description);
 				title = '';
 				content = '';
 				loadPosts(1, 10);
@@ -107,7 +108,8 @@
 
 	<div class="flex justify-center w-full mx-auto">
 		<form on:submit|preventDefault={handleCreatePost} class="flex flex-col w-1/2 mx-4">
-			<input bind:value={title} type="text" placeholder="Post Title" required class="w-56 bg-transparent border-b my-4 focus:outline-none" />
+			<input bind:value={title} type="text" placeholder="Post Title" required class="bg-transparent border-b my-4 focus:outline-none" />
+			<input bind:value={description} type="text" placeholder="Post Description" required class="bg-transparent border-b my-4 focus:outline-none" />
 			<textarea name="content" id="content" bind:value={content} placeholder="Post Content" required class="bg-transparent border rounded-lg p-2 h-64"></textarea>
 			<button type="submit" class="underline rounded-xl border py-1 px-4 w-36 my-4">Submit</button>
 		</form>
