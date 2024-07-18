@@ -17,4 +17,15 @@
 	<body class="dark:bg-dark_bg bg-light_bg dark:text-dark_text text-light-text h-full m-4">
 		<slot />
 	</body>
+
+	<nav class="border-t py-4 mt-12 text-light_text_darker dark:text-dark_text_darker flex justify-between">
+		<a href="https://zombienw.com/" class="hover:underline">ZombieNW {new Date().getFullYear()}</a>
+		<div class="flex gap-2">
+			<a href="https://www.youtube.com/@ZombieNW" class="hover:underline">youtube</a>
+			<a href="https://github.com/ZombieNW" class="hover:underline">github</a>
+			<a href="https://twitter.com/zombie_nw" class="hover:underline">twitter</a>
+		</div>
+	</nav>
 </div>
+
+<title>ZombieNW's Blog</title>
