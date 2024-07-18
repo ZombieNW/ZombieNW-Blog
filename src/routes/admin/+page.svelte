@@ -52,6 +52,7 @@
 		editingPostId = post.id;
 		title = post.title;
 		content = post.content;
+		description = post.description;
 	}
 
 	async function handleStopEditing() {
