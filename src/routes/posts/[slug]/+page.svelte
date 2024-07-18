@@ -13,6 +13,8 @@
 	});
 </script>
 
+<title>{post.title} • ZombieNW's Blog</title>
+
 <h1 class="text-3xl font-bold mb-4">{post.title}</h1>
 <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
 	{@html post.content}
