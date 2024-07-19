@@ -23,6 +23,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-node": "^5.2.0",
 		"better-sqlite3": "^11.1.2",
 		"dotenv": "^16.4.5",
 		"highlight.js": "^11.10.0",
