@@ -1,38 +1,39 @@
-# create-svelte
+# ZombieNW's Blog
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Source code for my personal blog, built with Svelte and Tailwind CSS.
 
-## Creating a project
+## Technologies Used
 
-If you're seeing this, you've probably already done this step. Congrats!
+- [Svelte](https://svelte.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Setup and Deployment
 
-# create a new project in my-app
-npm create svelte@latest my-app
+1. Clone this repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Build:
+   ```
+   npm run build
+   ```
+4. The `build` directory is now your server.
+5. Create a `.env` file based on the `example.env` file and fill it out in your `build` directory.
+6. Start the server with `node index.js`
+
+## Development
+
+To run the development server:
+
 ```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+## Contributing
 
-To create a production version of your app:
+Feel free to make a PR to contribute features.
 
-```bash
-npm run build
-```
+## License
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+MIT License. Please feel more than welcome to use this for your own blog. I will continue to update it as time goes on.
