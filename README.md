@@ -1,6 +1,8 @@
 # ZombieNW's Blog
 
-Source code for my personal blog, built with Svelte and Tailwind CSS.
+### _Source code for my personal blog._
+
+![Languages](https://badgen.net/badge/language/Node.JS/green) ![Platform](https://badgen.net/badge/language/Svelte/red) ![License](https://badgen.net/badge/language/MIT/red)
 
 ## Technologies Used
 
