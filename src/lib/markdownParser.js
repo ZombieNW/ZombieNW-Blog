@@ -1,5 +1,3 @@
-// File: src/lib/markdownParser.js
-
 import MarkdownIt from 'markdown-it';
 import stylesConfig from './markdownStyles.json';
 import hljs from 'highlight.js';
@@ -11,18 +9,11 @@ export function createMarkdownParser() {
 		typographer: true
 	});
 
-	// Helper function to add classes to a token
-	const addClasses = (token, newClasses) => {
-		token.attrJoin('class', `${newClasses}`);
-	};
-
-	// Generic rule application function
 	const applyRule = (tokens, idx, options, env, self, classes) => {
-		addClasses(tokens[idx], classes);
+		tokens[idx].attrJoin('class', `${classes}`);
 		return self.renderToken(tokens, idx, options);
 	};
 
-	// Apply rules based on configuration
 	md.renderer.rules.paragraph_open = (tokens, idx, options, env, self) => applyRule(tokens, idx, options, env, self, stylesConfig.paragraph);
 
 	md.renderer.rules.heading_open = (tokens, idx, options, env, self) => applyRule(tokens, idx, options, env, self, stylesConfig.heading[tokens[idx].tag]);
