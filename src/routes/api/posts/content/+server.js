@@ -2,9 +2,6 @@ import { json } from '@sveltejs/kit';
 import { getPostById, getPostBySlug } from '$lib/db.js';
 import dotenv from 'dotenv';
 
-import { requireAuth } from '$lib/utils.js';
-import { generateSlug } from '$lib/clientUtils.js';
-
 dotenv.config();
 
 export async function GET(event) {

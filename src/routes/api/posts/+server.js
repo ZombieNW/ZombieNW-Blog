@@ -3,7 +3,6 @@ import { createPost, updatePost, getPaginatedPosts, deletePost } from '$lib/db.j
 import dotenv from 'dotenv';
 
 import { requireAuth } from '$lib/utils.js';
-import { generateSlug } from '$lib/clientUtils.js';
 
 dotenv.config();
 
