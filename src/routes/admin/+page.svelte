@@ -78,7 +78,7 @@
 		const result = await response.json();
 
 		if (result.success) {
-			goto('/admin/dashboard');
+			goto('/admin');
 		} else {
 			error = result.error || 'Login failed';
 		}
