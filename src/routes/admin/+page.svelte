@@ -145,11 +145,11 @@
 		</div>
 	</div>
 {:else}
-	<h1>Admin Login</h1>
+	<h1 class="text-xl">Admin Login</h1>
 	<form on:submit|preventDefault={login}>
-		<input type="text" bind:value={username} placeholder="Username" required />
-		<input type="password" bind:value={password} placeholder="Password" required />
-		<button type="submit">Login</button>
+		<input type="text" bind:value={username} placeholder="Username" required class="bg-transparent border-b my-4 focus:outline-none" /> <br />
+		<input type="password" bind:value={password} placeholder="Password" required class="bg-transparent border-b my-4 focus:outline-none" /> <br />
+		<button type="submit" class="border-b my-4">Login</button>
 	</form>
 	{#if error}
 		<p class="error">{error}</p>
