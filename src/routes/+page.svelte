@@ -45,22 +45,26 @@
 	</div>
 {/each}
 
-<div class="text-2xl flex justify-center gap-2">
-	{#if currentPage === 1}
-		<span class="opacity-50">⬅️ </span>
-	{:else}
-		<button on:click={() => changePage(currentPage - 1)}>⬅️</button>
-	{/if}
-	{#if currentPage - 1 > 0}
-		<span>{currentPage - 1}</span>
-	{/if}
-	<span class="underline font-bold">{currentPage}</span>
-	{#if currentPage + 1 < totalPages + 1}
-		<span>{currentPage + 1}</span>
-	{/if}
-	{#if currentPage === totalPages}
-		<span class="opacity-50">➡️</span>
-	{:else}
-		<button on:click={() => changePage(currentPage + 1)}>➡️</button>
-	{/if}
-</div>
+{#if totalPages === 0}
+	<h1 class="text-2xl flex justify-center font-bold">Nothing to see here yet, folks!</h1>
+{:else}
+	<div class="text-2xl flex justify-center gap-2">
+		{#if currentPage === 1}
+			<span class="opacity-50">⬅️ </span>
+		{:else}
+			<button on:click={() => changePage(currentPage - 1)}>⬅️</button>
+		{/if}
+		{#if currentPage - 1 > 0}
+			<span>{currentPage - 1}</span>
+		{/if}
+		<span class="underline font-bold">{currentPage}</span>
+		{#if currentPage + 1 < totalPages + 1}
+			<span>{currentPage + 1}</span>
+		{/if}
+		{#if currentPage === totalPages || totalPages === 0}
+			<span class="opacity-50">➡️</span>
+		{:else}
+			<button on:click={() => changePage(currentPage + 1)}>➡️</button>
+		{/if}
+	</div>
+{/if}
