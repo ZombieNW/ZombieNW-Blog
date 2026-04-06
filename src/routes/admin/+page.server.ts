@@ -26,6 +26,6 @@ export const actions = {
 			return fail(500, { message: 'Could not save post.' });
 		}
 
-		throw redirect(303, `/blog/${slug}`);
+		throw redirect(303, `/post/${slug}`);
 	}
 };
