@@ -45,6 +45,7 @@
 	},
 	"dependencies": {
 		"better-sqlite3": "^12.6.2",
-		"marked": "^17.0.6"
+		"marked": "^17.0.6",
+		"shiki": "^4.0.2"
 	}
 }
