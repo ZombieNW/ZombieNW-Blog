@@ -3,7 +3,7 @@ import { createHighlighter } from 'shiki';
 
 // init highligher
 const highlighter = await createHighlighter({
-	themes: ['github-dark', 'github-light'],
+	themes: ['github-dark-default'],
 	langs: ['typescript', 'javascript', 'svelte', 'bash', 'css', 'html']
 });
 
@@ -13,7 +13,7 @@ marked.use({
 		code({ text, lang }) {
 			return highlighter.codeToHtml(text, {
 				lang: lang || 'text',
-				theme: 'github-dark'
+				theme: 'github-dark-default'
 			});
 		}
 	}
