@@ -14,7 +14,7 @@
 		</time>
 	</header>
 
-	<div class="prose lg:prose-xl dark:prose-invert">
+	<div class="prose lg:prose-xl dark:prose-invert prose-pre:p-0">
 		{@html data.post.html}
 	</div>
 </article>
