@@ -7,7 +7,7 @@
 	<div class="flex items-center justify-between gap-1">
 		<a
 			href={resolve(`/posts/${post.slug}`)}
-			class="mb-1 text-xl font-semibold text-zinc-800 dark:text-zinc-200"
+			class="mb-1 border-b-2 border-transparent text-xl font-semibold text-zinc-800 transition-all hover:border-zinc-400 dark:text-zinc-200 dark:hover:border-zinc-500"
 		>
 			{post.title}
 		</a>
