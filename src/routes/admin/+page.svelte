@@ -12,12 +12,12 @@
 	<form method="POST" class="space-y-6">
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 			<label class="block">
-				<span class="text-gray-700">Title</span>
+				<span class="text-gray-700 dark:text-gray-300">Title</span>
 				<input name="title" type="text" class="mt-1 block w-full rounded-md border p-2" required />
 			</label>
 
 			<label class="block">
-				<span class="text-gray-700">Slug (URL)</span>
+				<span class="text-gray-700 dark:text-gray-300">Slug (URL)</span>
 				<input
 					name="slug"
 					type="text"
@@ -29,24 +29,24 @@
 		</div>
 
 		<label class="block">
-			<span class="text-gray-700">Short Description</span>
+			<span class="text-gray-700 dark:text-gray-300">Description</span>
 			<input name="description" type="text" class="mt-1 block w-full rounded-md border p-2" />
 		</label>
 
 		<label class="block">
-			<span class="text-gray-700">Content (Markdown)</span>
+			<span class="text-gray-700 dark:text-gray-300">Content (Markdown)</span>
 			<textarea
 				name="content"
 				rows="15"
 				class="mt-1 block w-full rounded-md border p-2 font-mono text-sm"
-				placeholder="Paste your markdown here..."
+				placeholder="Markdown goes here..."
 				required
 			></textarea>
 		</label>
 
 		<button
 			type="submit"
-			class="rounded-md bg-blue-600 px-6 py-2 text-white transition hover:bg-blue-700"
+			class="w-full rounded-md bg-indigo-600 px-6 py-2 text-white transition hover:cursor-pointer hover:bg-indigo-700"
 		>
 			Publish Post
 		</button>
