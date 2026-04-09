@@ -23,9 +23,10 @@ export const actions = {
 				content
 			});
 		} catch (err) {
+			console.error(err);
 			return fail(500, { message: 'Could not save post.' });
 		}
 
-		throw redirect(303, `/post/${slug}`);
+		throw redirect(303, `/posts/${slug}`);
 	}
 };

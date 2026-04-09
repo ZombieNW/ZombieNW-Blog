@@ -1,8 +1,10 @@
 <script>
+	import Hero from '$lib/components/Hero.svelte';
 	import ListPost from '$lib/components/ListPost.svelte';
 	let { data } = $props();
 </script>
 
-{#each data.allPosts as post}
+<Hero />
+{#each data.allPosts as post (post.id)}
 	<ListPost {post} />
 {/each}

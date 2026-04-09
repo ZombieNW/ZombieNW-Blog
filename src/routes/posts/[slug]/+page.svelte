@@ -2,6 +2,7 @@
 	let { data } = $props();
 </script>
 
+<!-- eslint-disable svelte/no-at-html-tags -->
 <svelte:head>
 	<title>{data.post.title}</title>
 </svelte:head>

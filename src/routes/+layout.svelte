@@ -1,6 +1,7 @@
 <script lang="ts">
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
+	import Header from '$lib/components/Header.svelte';
 
 	let { children } = $props();
 </script>
@@ -9,6 +10,7 @@
 
 <main class="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-200">
 	<div class="mx-auto w-full max-w-4xl px-4 py-8">
+		<Header />
 		{@render children()}
 	</div>
 </main>
