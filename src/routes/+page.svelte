@@ -5,6 +5,7 @@
 </script>
 
 <Hero />
+<h1 class="mt-4 border-b border-zinc-700 py-1 text-2xl font-bold">Posts</h1>
 {#each data.allPosts as post (post.id)}
 	<ListPost {post} />
 {/each}

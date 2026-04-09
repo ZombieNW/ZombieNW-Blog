@@ -12,5 +12,8 @@
 	<div class="mx-auto w-full max-w-4xl px-4 py-8">
 		<Header />
 		{@render children()}
+		<div class="mt-4 text-center text-sm text-zinc-500 dark:text-zinc-400">
+			by ZombieNW with ❤️, {new Date().getFullYear()}
+		</div>
 	</div>
 </main>
