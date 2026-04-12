@@ -36,7 +36,7 @@ export const GET = async ({ url }) => {
     </rss>
   `.trim();
 
-	// 3. Return the response with correct headers
+	// return response with propper headers
 	return new Response(xml, {
 		headers: {
 			'Content-Type': 'application/xml',
