@@ -1,6 +1,27 @@
 <script lang="ts">
-	let { form } = $props();
+	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
+
+	let { form, data } = $props();
 </script>
+
+<h1 class="mt-4 mb-8 text-3xl font-bold">Edit Existing Posts</h1>
+
+<div>
+	{#each data.allPosts as post (post.slug)}
+		<div class="mb-4 rounded border p-4">
+			<div class="flex items-center justify-between">
+				<h2 class="text-xl font-semibold">{post.title}</h2>
+				<button
+					onclick={async () => await goto(resolve(`/admin/edit/${post.slug}`))}
+					class="rounded bg-blue-600 px-4 py-2 text-white transition hover:cursor-pointer hover:bg-blue-700"
+				>
+					Edit
+				</button>
+			</div>
+		</div>
+	{/each}
+</div>
 
 <h1 class="mt-4 mb-8 text-3xl font-bold">Create New Post</h1>
 
