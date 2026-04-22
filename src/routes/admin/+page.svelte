@@ -9,12 +9,12 @@
 
 <div>
 	{#each data.allPosts as post (post.slug)}
-		<div class="mb-4 rounded border p-4">
+		<div class="mb-4 border-b p-4">
 			<div class="flex items-center justify-between">
 				<h2 class="text-xl font-semibold">{post.title}</h2>
 				<button
 					onclick={async () => await goto(resolve(`/admin/edit/${post.slug}`))}
-					class="rounded bg-blue-600 px-4 py-2 text-white transition hover:cursor-pointer hover:bg-blue-700"
+					class="rounded bg-indigo-600 px-4 py-2 text-white transition hover:cursor-pointer hover:bg-indigo-700"
 				>
 					Edit
 				</button>
@@ -33,7 +33,13 @@
 	<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 		<label class="block">
 			<span class="text-gray-700 dark:text-gray-300">Title</span>
-			<input name="title" type="text" class="mt-1 block w-full rounded-md border p-2" required />
+			<input
+				name="title"
+				type="text"
+				placeholder="ZombieNW's New Idea"
+				class="mt-1 block w-full border-b p-2 outline-none"
+				required
+			/>
 		</label>
 
 		<label class="block">
@@ -41,8 +47,8 @@
 			<input
 				name="slug"
 				type="text"
-				placeholder="my-blog-post"
-				class="mt-1 block w-full rounded-md border p-2"
+				placeholder="znw-new-idea"
+				class="mt-1 block w-full border-b p-2 outline-none"
 				required
 			/>
 		</label>
@@ -50,7 +56,12 @@
 
 	<label class="block">
 		<span class="text-gray-700 dark:text-gray-300">Description</span>
-		<input name="description" type="text" class="mt-1 block w-full rounded-md border p-2" />
+		<input
+			name="description"
+			type="text"
+			class="mt-1 block w-full border-b p-2 outline-none"
+			placeholder="This is ZombieNW's new crazy idea that he is totally writing about."
+		/>
 	</label>
 
 	<label class="block">
@@ -58,7 +69,7 @@
 		<textarea
 			name="content"
 			rows="15"
-			class="mt-1 block w-full rounded-md border p-2 font-mono text-sm"
+			class="mt-1 block w-full border-b p-2 font-mono text-sm outline-none"
 			placeholder="Markdown goes here..."
 			required
 		></textarea>

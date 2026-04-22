@@ -25,7 +25,7 @@
 				<input
 					name="title"
 					type="text"
-					class="mt-1 block w-full rounded-md border p-2"
+					class="mt-1 block w-full border-b p-2 outline-none"
 					value={data.post.title}
 					required
 				/>
@@ -37,7 +37,7 @@
 			<input
 				name="description"
 				type="text"
-				class="mt-1 block w-full rounded-md border p-2"
+				class="mt-1 block w-full border-b p-2 outline-none"
 				value={data.post.description}
 			/>
 		</label>
@@ -47,7 +47,7 @@
 			<textarea
 				name="content"
 				rows="15"
-				class="mt-1 block w-full rounded-md border p-2 font-mono text-sm"
+				class="mt-1 block w-full border-b p-2 font-mono text-sm outline-none"
 				placeholder="Markdown goes here..."
 				required
 				value={data.post.content}
