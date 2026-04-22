@@ -1,0 +1,64 @@
+<script lang="ts">
+	import { redirect } from '@sveltejs/kit';
+	import { onMount } from 'svelte';
+
+	let { form, data } = $props();
+
+	onMount(() => {
+		if (!data.post) {
+			throw redirect(302, '/admin');
+		}
+	});
+</script>
+
+<h1 class="mt-4 mb-8 text-3xl font-bold">Edit Post</h1>
+
+{#if form?.message}
+	<p class="mb-4 rounded bg-red-100 p-4 text-red-700">{form.message}</p>
+{/if}
+
+{#if data.post}
+	<form method="POST" class="space-y-6">
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+			<label class="block">
+				<span class="text-gray-700 dark:text-gray-300">Title</span>
+				<input
+					name="title"
+					type="text"
+					class="mt-1 block w-full rounded-md border p-2"
+					value={data.post.title}
+					required
+				/>
+			</label>
+		</div>
+
+		<label class="block">
+			<span class="text-gray-700 dark:text-gray-300">Description</span>
+			<input
+				name="description"
+				type="text"
+				class="mt-1 block w-full rounded-md border p-2"
+				value={data.post.description}
+			/>
+		</label>
+
+		<label class="block">
+			<span class="text-gray-700 dark:text-gray-300">Content (Markdown)</span>
+			<textarea
+				name="content"
+				rows="15"
+				class="mt-1 block w-full rounded-md border p-2 font-mono text-sm"
+				placeholder="Markdown goes here..."
+				required
+				value={data.post.content}
+			></textarea>
+		</label>
+
+		<button
+			type="submit"
+			class="w-full rounded-md bg-indigo-600 px-6 py-2 text-white transition hover:cursor-pointer hover:bg-indigo-700"
+		>
+			Publish Edit
+		</button>
+	</form>
+{/if}

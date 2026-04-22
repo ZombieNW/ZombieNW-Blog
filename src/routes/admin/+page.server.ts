@@ -1,6 +1,14 @@
 import { db } from '$lib/server/db';
 import { posts } from '$lib/server/db/schema';
 import { fail, redirect } from '@sveltejs/kit';
+import { desc } from 'drizzle-orm';
+
+export const load = async () => {
+	const allPosts = await db.query.posts.findMany({
+		orderBy: [desc(posts.createdAt)]
+	});
+	return { allPosts };
+};
 
 export const actions = {
 	default: async ({ request }) => {

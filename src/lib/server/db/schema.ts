@@ -6,5 +6,6 @@ export const posts = sqliteTable('posts', {
 	slug: text('slug').notNull().unique(),
 	content: text('content').notNull(), // markdown
 	description: text('description'),
-	createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date())
+	createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+	updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => new Date())
 });
