@@ -30,7 +30,8 @@ export const actions = {
 					title,
 					slug: params.slug,
 					description,
-					content
+					content,
+					updatedAt: new Date()
 				})
 				.where(eq(posts.slug, params.slug));
 		} catch (err) {
