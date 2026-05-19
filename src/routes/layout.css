@@ -11,7 +11,7 @@ body {
 	font-optical-sizing: auto;
 	font-weight: 400;
 
-	color: theme(--color-gray-50);
+	color: theme(--color-gray-100);
 	background-color: theme(--color-gray-950);
 
 	overflow-x: hidden;

@@ -1,13 +1,12 @@
 import { marked } from 'marked';
 import { createHighlighter } from 'shiki';
 
-// init highligher
 const highlighter = await createHighlighter({
 	themes: ['github-dark-default'],
-	langs: ['typescript', 'javascript', 'svelte', 'bash', 'css', 'html']
+	langs: ['typescript', 'javascript', 'svelte', 'bash', 'css', 'html', 'c', 'c++']
 });
 
-// make highlighter extension
+// register code highlighter as an extension of marked
 marked.use({
 	renderer: {
 		code({ text, lang }) {

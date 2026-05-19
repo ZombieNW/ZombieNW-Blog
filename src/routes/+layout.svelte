@@ -8,7 +8,7 @@
 <svelte:head><link rel="icon" href="/favicon.png" /></svelte:head>
 
 <main class="min-h-screen">
-	<div class="mx-auto w-full max-w-4xl px-4 py-8">
+	<div class="mx-auto w-full max-w-6xl px-4 py-8">
 		<Header />
 		{@render children()}
 		<div class="mt-4 text-center text-sm">
