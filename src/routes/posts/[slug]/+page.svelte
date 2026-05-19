@@ -19,7 +19,7 @@
 		</time>
 	</header>
 
-	<div class="prose mb-12 lg:prose-xl dark:prose-invert prose-pre:px-4 prose-pre:py-1">
+	<div class="prose mb-12 prose-invert lg:prose-xl prose-pre:px-4 prose-pre:py-1">
 		{@html data.post.html}
 	</div>
 </article>
