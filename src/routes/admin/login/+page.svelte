@@ -9,11 +9,7 @@
 	let password = $state('');
 	let displayPassword = $state('');
 
-	let lines: string[] = $state([
-		'ZombieNW Brand Terminal Emulator [Version 1.1.0]',
-		'(c) ZombieNW. All rights reserved.',
-		''
-	]);
+	let lines: string[] = $state(['ZombieNW Terminal Emulator v1.1.0', '']);
 
 	// actual inputs
 	let usernameInput: HTMLInputElement;
