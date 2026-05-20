@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import pkg from '../../../../package.json' with { type: 'json' };
 	let { form } = $props();
+	const version = pkg.version;
 
 	type State = 'username' | 'password' | 'submit' | 'error';
 
@@ -9,7 +11,7 @@
 	let password = $state('');
 	let displayPassword = $state('');
 
-	let lines: string[] = $state(['ZombieNW Terminal Emulator v1.1.0', '']);
+	let lines: string[] = $state([`ZombieNW Terminal Emulator v${version}`, '']);
 
 	// actual inputs
 	let usernameInput: HTMLInputElement;
