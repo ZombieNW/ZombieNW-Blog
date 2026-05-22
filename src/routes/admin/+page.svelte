@@ -28,7 +28,7 @@
 </div>
 
 {#if tab === 'edit'}
-	<h1 class="mt-4 mb-8 text-3xl font-bold">Edit Existing Posts</h1>
+	<h1 class="mt-8 mb-4 border-b border-gray-700 pb-2 text-3xl font-bold">Edit Existing Post</h1>
 
 	<div>
 		{#each data.allPosts as post (post.slug)}
@@ -46,7 +46,7 @@
 		{/each}
 	</div>
 {:else if tab === 'create'}
-	<h1 class="mt-4 mb-8 text-3xl font-bold">Create New Post</h1>
+	<h1 class="mt-8 mb-4 border-b border-gray-700 pb-2 text-3xl font-bold">Create New Post</h1>
 
 	{#if form?.message}
 		<p class="mb-4 rounded bg-red-100 p-4 text-red-700">{form.message}</p>
