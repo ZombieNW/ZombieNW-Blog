@@ -5,6 +5,7 @@ import { error } from '@sveltejs/kit';
 import { parseMarkdown } from '$lib/markdown';
 
 export const load = async ({ params }) => {
+	// find post via slug
 	const post = await db.query.posts.findFirst({
 		where: eq(posts.slug, params.slug)
 	});
