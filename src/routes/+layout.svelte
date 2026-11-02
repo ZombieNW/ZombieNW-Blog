@@ -19,12 +19,19 @@
 
 <svelte:head><link rel="icon" href="/favicon.png" /></svelte:head>
 
-<main class="custom-scrollbar min-h-screen">
+<main class="min-h-screen">
 	<div class="mx-auto w-full max-w-6xl px-4 py-8">
+		<!-- Header -->
 		<Header />
+
+		<!-- Page -->
 		{@render children()}
-		<div class="mt-4 text-center text-sm">
-			by ZombieNW with ❤️, {new Date().getFullYear()}
-		</div>
+
+		<!-- Footer -->
+		<footer class="mt-4 border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
+			by ZombieNW with <span class="text-red-400" role="img" aria-label="love">&hearts;</span
+			>,
+			{new Date().getFullYear()}
+		</footer>
 	</div>
 </main>

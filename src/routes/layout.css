@@ -2,24 +2,108 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
+html {
+	scroll-behavior: smooth;
+	color-scheme: dark;
+	scrollbar-color: var(--color-gray-700) transparent;
+	scrollbar-width: thin;
+}
+
 html,
 body {
 	width: 100%;
+	min-height: 100%;
 	margin: 0;
 
 	font-family: 'Rubik', sans-serif;
 	font-optical-sizing: auto;
 	font-weight: 400;
 
-	color: theme(--color-gray-100);
-	background-color: theme(--color-gray-950);
-	background: linear-gradient(to top, theme(--color-gray-950), theme(--color-gray-900));
-
+	color: var(--color-gray-100);
 	overflow-x: hidden;
+}
+
+html {
+	background: linear-gradient(to top, var(--color-gray-950), var(--color-gray-900));
+	background-attachment: fixed;
+}
+
+::selection {
+	background-color: var(--color-indigo-500);
+	color: white;
 }
 
 @utility prose-brand {
 	--tw-prose-invert-body: var(--color-gray-300);
 	--tw-prose-invert-headings: var(--color-gray-100);
+	--tw-prose-invert-lead: var(--color-gray-400);
 	--tw-prose-invert-links: var(--color-indigo-400);
+	--tw-prose-invert-bold: var(--color-gray-100);
+	--tw-prose-invert-counters: var(--color-gray-500);
+	--tw-prose-invert-bullets: var(--color-gray-600);
+	--tw-prose-invert-hr: var(--color-gray-800);
+	--tw-prose-invert-quotes: var(--color-gray-200);
+	--tw-prose-invert-quote-borders: var(--color-indigo-500);
+	--tw-prose-invert-captions: var(--color-gray-500);
+	--tw-prose-invert-code: var(--color-indigo-300);
+	--tw-prose-invert-pre-code: var(--color-gray-200);
+	--tw-prose-invert-pre-bg: var(--color-gray-900);
+	--tw-prose-invert-th-borders: var(--color-gray-700);
+	--tw-prose-invert-td-borders: var(--color-gray-800);
+
+	& :where(h2, h3, h4) {
+		scroll-margin-top: 1.5rem;
+		text-wrap: balance;
+	}
+
+	& :where(a) {
+		text-underline-offset: 3px;
+		text-decoration-thickness: 1px;
+		transition: color 150ms ease;
+	}
+
+	& :where(a):hover {
+		color: var(--color-indigo-300);
+	}
+
+	& :where(:not(pre) > code)::before,
+	& :where(:not(pre) > code)::after {
+		content: none;
+	}
+
+	& :where(:not(pre) > code) {
+		padding: 0.15em 0.4em;
+		border: 1px solid var(--color-gray-700);
+		border-radius: 0.375rem;
+		background-color: var(--color-gray-800);
+		font-size: 0.875em;
+		font-weight: 500;
+		overflow-wrap: anywhere;
+	}
+
+	& :where(pre) {
+		padding: 0.75rem 1rem;
+		border: 1px solid var(--color-gray-800);
+		border-radius: 0.5rem;
+	}
+
+	& :where(blockquote p:first-of-type)::before,
+	& :where(blockquote p:last-of-type)::after {
+		content: none;
+	}
+
+	& :where(blockquote) {
+		padding: 0.25rem 0.5em;
+		border-radius: 0 0.5rem 0.5rem 0;
+		background-color: color-mix(in srgb, var(--color-gray-800) 40%, transparent);
+	}
+
+	& :where(img) {
+		border-radius: 0.5rem;
+	}
+
+	& :where(table) {
+		display: block;
+		overflow-x: auto;
+	}
 }

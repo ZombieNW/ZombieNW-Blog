@@ -9,7 +9,8 @@ export const GET = async ({ url }) => {
 
 	const siteUrl = url.origin;
 	const siteTitle = 'ZombieNW Blog';
-	const siteDescription = "I haven't thought of a description yet.";
+	const siteDescription =
+		"This is where I talk about stuff on the internet, or make really bad jokes, or, if you're lucky, both at once...";
 
 	// generate xml
 	const xml = `
