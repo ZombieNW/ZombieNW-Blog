@@ -15,5 +15,5 @@
 			>{post.createdAt?.toLocaleDateString() ?? 'Unknown'}</span
 		>
 	</div>
-	<p class="my-1 text-gray-300">{post.description}</p>
+	<p class="my-1 text-gray-400">{post.description}</p>
 </div>
