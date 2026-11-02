@@ -12,25 +12,37 @@ export const GET: RequestHandler = async ({ url }) => {
 	const siteTitle = 'ZombieNW Blog';
 	const siteDescription =
 		"This is where I talk about stuff on the internet, or make really bad jokes, or, if you're lucky, both at once...";
+	const siteAuthor = 'ZombieNW';
 
 	const xml = `<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>${escapeXml(siteTitle)}</title>
     <description>${escapeXml(siteDescription)}</description>
     <link>${siteUrl}</link>
+    <language>en-us</language>
     <atom:link href="${siteUrl}/rss.xml" rel="self" type="application/rss+xml"/>
     ${allPosts
-		.map(
-			(post) => `
+		.map((post) => {
+			const postUrl = `${siteUrl}/blog/${post.slug}`;
+			const postDate = new Date(post.createdAt ?? Date.now()).toUTCString();
+
+			const postContent = post.content || post.description || '';
+
+			return `
     <item>
       <title>${escapeXml(post.title)}</title>
+      <link>${postUrl}</link>
+      <guid isPermaLink="true">${postUrl}</guid>
+      <pubDate>${postDate}</pubDate>
+      <dc:creator>${escapeXml(siteAuthor)}</dc:creator>
       <description>${escapeXml(post.description || '')}</description>
-      <link>${siteUrl}/blog/${post.slug}</link>
-      <guid isPermaLink="true">${siteUrl}/blog/${post.slug}</guid>
-      <pubDate>${new Date(post.createdAt ?? Date.now()).toUTCString()}</pubDate>
-    </item>`
-		)
+      <content:encoded>${wrapCdata(postContent)}</content:encoded>
+    </item>`;
+		})
 		.join('')}
   </channel>
 </rss>`.trim();
@@ -60,4 +72,8 @@ function escapeXml(unsafe: string): string {
 				return c;
 		}
 	});
+}
+
+function wrapCdata(content: string): string {
+	return `<![CDATA[${content.replace(/]]>/g, ']]]]><![CDATA[>')}]]>`;
 }
